@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./fe
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./fe:/app
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./be
+    ports:
+      - "5001:5000" # Map port 5000 in the container to port 5001 on the host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - MongoDBSettings__ConnectionString=mongodb+srv://quanqhuy18898:0taTViIArvV90IMZ@cluster0.6br4n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - MongoDBSettings__DatabaseName=my_project
+      - MongoDBSettings__CollectionName=project
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
