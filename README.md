@@ -50,8 +50,8 @@ docker-compose up --build`
 
 Lệnh trên sẽ xây dựng lại các container Docker và khởi động chúng. Sau khi quá trình hoàn tất, các dịch vụ sẽ chạy và bạn có thể truy cập ứng dụng của mình qua địa chỉ:
 
--   **Frontend**: <http://localhost:3000> (hoặc port mà bạn đã cấu hình trong Docker Compose)
--   **API**: <http://localhost:5000> (hoặc port mà bạn đã cấu hình trong Docker Compose)
+-   **Frontend**: <http://localhost:3001>
+-   **API**: <http://localhost:5001/swagger/index.html> (hoặc port mà bạn đã cấu hình trong Docker Compose)
 
 Gỡ Rối
 ------
